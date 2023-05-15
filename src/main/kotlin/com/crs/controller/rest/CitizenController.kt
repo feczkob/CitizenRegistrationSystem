@@ -33,22 +33,6 @@ class CitizenController(
 
     @ApiResponses(
         value = [ApiResponse(
-            responseCode = "200",
-            description = "OK",
-            content = [Content(
-                mediaType = MediaType.APPLICATION_JSON_VALUE,
-                schema = Schema(implementation = String::class)
-            )]
-        )]
-    )
-    @Operation(description = "Test")
-    @GetMapping
-    fun test(): ResponseEntity<String> {
-        return ResponseEntity.ok("Test")
-    }
-
-    @ApiResponses(
-        value = [ApiResponse(
             responseCode = "201",
             description = "Created",
             content = [Content(
