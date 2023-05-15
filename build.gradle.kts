@@ -31,6 +31,8 @@ dependencies {
     implementation("javax.ws.rs:javax.ws.rs-api:2.1.1")
     implementation("org.springframework.boot:spring-boot-starter-jersey")
     implementation("io.github.microutils:kotlin-logging-jvm:3.0.5")
+    implementation("org.modelmapper:modelmapper:3.1.1")
+    implementation("org.openapitools:jackson-databind-nullable:0.2.1")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
