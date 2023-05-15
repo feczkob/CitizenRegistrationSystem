@@ -23,10 +23,16 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
-    testImplementation("org.springframework.boot:spring-boot-starter-test")
+
     implementation("org.springdoc:springdoc-openapi-data-rest:${Version.springdoc}")
     implementation("org.springdoc:springdoc-openapi-ui:${Version.springdoc}")
     runtimeOnly("org.springdoc:springdoc-openapi-kotlin:${Version.springdoc}")
+
+    implementation("javax.ws.rs:javax.ws.rs-api:2.1.1")
+    implementation("org.springframework.boot:spring-boot-starter-jersey")
+    implementation("io.github.microutils:kotlin-logging-jvm:3.0.5")
+
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
 tasks.withType<KotlinCompile> {
