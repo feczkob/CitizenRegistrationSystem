@@ -33,6 +33,7 @@ dependencies {
     implementation("io.github.microutils:kotlin-logging-jvm:3.0.5")
     implementation("org.modelmapper:modelmapper:3.1.1")
     implementation("org.openapitools:jackson-databind-nullable:0.2.1")
+    implementation("org.springframework.boot:spring-boot-starter-data-mongodb")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }

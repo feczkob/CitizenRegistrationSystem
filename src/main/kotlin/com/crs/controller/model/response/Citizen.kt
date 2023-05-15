@@ -9,7 +9,7 @@ import javax.ws.rs.Path
 @Schema(name = "Citizen response")
 data class Citizen(
     @Schema(description = "Id of the citizen", nullable = false)
-    var id: String,
+    var id: String = "",
     @Schema(description = "Name of the citizen", nullable = false)
     var name: String = "",
     @Schema(description = "Date of birth of the citizen", nullable = false)

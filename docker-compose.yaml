@@ -1,0 +1,20 @@
+version: '3.3'
+
+services:
+  mongo:
+    image: mongo
+    container_name: mongo
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_DATABASE: citizen
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: citizen
+    volumes:
+      - mongo_db:/data/db
+      - ./src/main/resources/db/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+    ports:
+      - '27017:27017'
+
+volumes:
+  mongo_db:
+    external: false

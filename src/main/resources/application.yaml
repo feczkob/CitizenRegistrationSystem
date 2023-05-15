@@ -10,3 +10,10 @@ springdoc:
   api-docs:
     enabled: true
     path: /api-docs
+
+spring:
+  data:
+    mongodb:
+      password: crs
+      username: crs
+      database: citizen
