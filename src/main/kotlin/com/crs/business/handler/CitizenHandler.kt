@@ -6,4 +6,5 @@ interface CitizenHandler {
 
     fun saveCitizen(citizen: Citizen): Citizen
     fun loadCitizen(citizenId: String): Citizen
+    fun loadCitizenByIdNumber(idNumber: String): Citizen
 }
