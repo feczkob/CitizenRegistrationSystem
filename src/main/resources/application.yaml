@@ -17,3 +17,12 @@ spring:
       password: crs
       username: crs
       database: citizen
+
+logging:
+  level:
+    org:
+      springframework:
+        data:
+          mongodb:
+            core:
+              MongoTemplate: DEBUG

@@ -16,5 +16,10 @@ class CitizenToBusinessConverter(
         val citizen = citizenConfig.getCitizen()
         modelMapper.map(source, citizen)
         return citizen
+
+//        return with(citizenConfig.getCitizen()) {
+//            modelMapper.map(source, this)
+//            this
+//        }
     }
 }

@@ -67,8 +67,11 @@ class CitizenController(
     ): ResponseEntity<com.crs.controller.model.response.Citizen> {
         val c = citizenToBusinessConverter.convert(citizen).addCitizen()
         val processedUri = UriBuilder.fromResource(com.crs.controller.model.response.Citizen::class.java)
-            .path(CITIZEN_ID)
-            .build(c.id)
+            .run {
+                path(CITIZEN_ID)
+                build(c.id)
+            }
+
         return ResponseEntity.created(processedUri)
             .body(modelMapper.map(c, com.crs.controller.model.response.Citizen::class.java))
     }
@@ -105,8 +108,9 @@ class CitizenController(
         @NotNull
         @PathVariable citizenId: String,
     ): ResponseEntity<com.crs.controller.model.response.Citizen> {
-        val business = citizenConfig.getCitizen()
-        business.id = citizenId
+        val business = citizenConfig.getCitizen().apply {
+            id = citizenId
+        }
 
         return ResponseEntity.ok().body(
             modelMapper.map(
@@ -148,8 +152,9 @@ class CitizenController(
         @NotNull
         @RequestParam idNumber: String,
     ): ResponseEntity<com.crs.controller.model.response.Citizen> {
-        val business = citizenConfig.getCitizen()
-        business.idNumber = idNumber
+        val business = citizenConfig.getCitizen().apply {
+            this.idNumber = idNumber
+        }
 
         return ResponseEntity.ok().body(
             modelMapper.map(

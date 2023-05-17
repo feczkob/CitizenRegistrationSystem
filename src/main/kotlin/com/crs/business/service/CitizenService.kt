@@ -22,15 +22,19 @@ class CitizenService(
         val saved = citizenRepository.save(toBeSaved)
         modelMapper.map(saved, citizen)
         return citizen
+
+//        modelMapper.map(modelMapper.map(citizen, com.crs.client.entity.Citizen::class.java)
+//            .apply { citizenRepository.save(this) }, citizen)
+//        return citizen
     }
 
     override fun loadCitizen(citizenId: String): Citizen {
-        val loaded = citizenRepository.findByIdOrNull(citizenId) ?: throw BusinessException(ErrorType.MISSING_ENTITY)
-        return citizenConverter.convert(loaded)
+        return citizenRepository.findByIdOrNull(citizenId)?.let { citizenConverter.convert(it) }
+            ?: throw BusinessException(ErrorType.MISSING_ENTITY)
     }
 
     override fun loadCitizenByIdNumber(idNumber: String): Citizen {
-        val loaded = citizenRepository.findCitizenByIdNumberEquals(idNumber) ?: throw BusinessException(ErrorType.MISSING_ENTITY)
-        return citizenConverter.convert(loaded)
+        return citizenRepository.findCitizenByIdNumberEquals(idNumber)?.let { citizenConverter.convert(it) }
+            ?: throw BusinessException(ErrorType.MISSING_ENTITY)
     }
 }
