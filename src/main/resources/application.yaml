@@ -17,6 +17,7 @@ spring:
       password: crs
       username: crs
       database: citizen
+#      auto-index-creation: true
 
 logging:
   level:
