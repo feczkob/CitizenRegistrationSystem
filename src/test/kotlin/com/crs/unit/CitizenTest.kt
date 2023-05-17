@@ -1,13 +1,11 @@
 package com.crs.unit
 
 import com.crs.business.exception.BusinessException
-import com.crs.business.exception.ErrorType
 import com.crs.business.handler.CitizenHandler
 import com.crs.business.model.Citizen
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertThrows
 import org.junit.jupiter.api.Test
-import org.mockito.Mockito.doThrow
 import org.mockito.Mockito.mock
 import org.mockito.Mockito.`when`
 

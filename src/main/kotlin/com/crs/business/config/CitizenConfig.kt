@@ -6,11 +6,13 @@ import org.springframework.beans.factory.annotation.Lookup
 import org.springframework.beans.factory.config.ConfigurableBeanFactory
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
+import org.springframework.context.annotation.Scope
 
 @Configuration
 class CitizenConfig {
 
-    @Bean(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
+    @Bean
+    @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
     fun citizen(citizenHandler: CitizenHandler): Citizen {
         return Citizen(citizenHandler)
     }

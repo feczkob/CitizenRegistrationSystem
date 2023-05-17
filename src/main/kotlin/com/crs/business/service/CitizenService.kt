@@ -18,14 +18,9 @@ class CitizenService(
 ): CitizenHandler {
 
     override fun saveCitizen(citizen: Citizen): Citizen {
-        val toBeSaved = modelMapper.map(citizen, com.crs.client.entity.Citizen::class.java)
-        val saved = citizenRepository.save(toBeSaved)
-        modelMapper.map(saved, citizen)
+        modelMapper.map(modelMapper.map(citizen, com.crs.client.entity.Citizen::class.java)
+            .apply { citizenRepository.save(this) }, citizen)
         return citizen
-
-//        modelMapper.map(modelMapper.map(citizen, com.crs.client.entity.Citizen::class.java)
-//            .apply { citizenRepository.save(this) }, citizen)
-//        return citizen
     }
 
     override fun loadCitizen(citizenId: String): Citizen {

@@ -13,13 +13,9 @@ class CitizenToBusinessConverter(
 ): Converter<Citizen, com.crs.business.model.Citizen> {
 
     override fun convert(source: Citizen): com.crs.business.model.Citizen {
-        val citizen = citizenConfig.getCitizen()
-        modelMapper.map(source, citizen)
-        return citizen
-
-//        return with(citizenConfig.getCitizen()) {
-//            modelMapper.map(source, this)
-//            this
-//        }
+        return with(citizenConfig.getCitizen()) {
+            modelMapper.map(source, this)
+            this
+        }
     }
 }
