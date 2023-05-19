@@ -1,11 +1,11 @@
 package com.crs.client.entity
 
+import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.index.Indexed
-import org.springframework.data.mongodb.core.mapping.MongoId
 import java.time.LocalDate
 
 class Citizen(
-    @MongoId
+    @Id
     @Indexed // * https://www.baeldung.com/spring-data-mongodb-unique
     var id: String? = null,
     var name: String = "",
